@@ -41,6 +41,15 @@ This will run all test suites and generate unit coverage summary.
 
 The most popular CSS framework which helps building Web UIs in minutes with just some markup and classes.
 
+Even though version 4 is still an alpha version, we get a lot of value and rather modern and good looking styles.
+Not only we get tons of classes, but we can also use the variables and mixins from the source in our Sass 
+stylesheets, se we can perform better calculations and stick to the styleguide.
+
+### Font Awesome
+
+Used so as to get the header icon. Adding it implies bringing in some more rules to our
+webpack configuration, allowing the demo to showcase the power of webpack.
+
 ### Angular UI Router
 
 AngularJS itself brings a router provider that is good enough by itself, yet this library
@@ -95,9 +104,23 @@ For this particular project it has been configured to use `standard` styleguide 
 Documentation generator from TypeScript sources. This tool is similar to JSDoc, but we get all the benefits from
 TypeScript type definitions, resulting in a better linked documentation web.
 
-### Karma, Chai, Sinon
+### Karma, Mocha, Chai, Sinon
+
+This has been the de-facto stack for script-based frontend unit testing. I favour it in spite of Jasmine,
+which seems to be an all-in-one tool, as you can get quite more powerful APIs from these libraries. 
+
+There are also new tools coming that could replace them (jest) and would make it a lot easier to work with 
+modules and bundlers, configure test coverage and preprocessors... yet I am still researching it and find myself 
+more confident with this stack.
 
 ### Sass
+
+Sass and Less are very similar preprocessors for CSS, I tend to like and use Sass more, I think it is a really powerful,
+from which you can get a lot of good features. In this particular demo, not many of those could be showcased.
+
+To begin with, it allows importing plain CSS or Scss, which is really nice as aforementioned. Nesting is core nowadays 
+for maintainable and scalable styles (as a personal note, nesting media queries just feels glorious), variables, sets, 
+mixins and templates help reusing functionality, reducing duplicated code and and keep consistancy.
 
 ### JSON Server
 
@@ -109,11 +132,27 @@ It would just work out of the box with the provided customer JSON, but I wanted 
 it and just use the mocks as a in-memory database. For this purpose we need to create a JS file exporting the
 JSON data.
 
-## Code insights
+## Implementation insights
 
 ### Manual bootstrapping
 
+One of the very first things that I learned and adopted when using angular was to discard the `ng-app` directive. It is
+preferable to control the startup of applications by ourselves, and `angular.bootstrap()` provides this.
+
 ### Decorators
+
+Even though the application would work perfectly by using traditional angular syntax, I think this is a good way of 
+showcasing the power of TypeScript or future ES7. Decorators here are just sugar syntax, but help spotting injectables,
+component configurations, etc. at a glance plus keeping related data together.
+
+As a personal note, I find it interesting how just mixing Angular 1.6 + TypeScript + Decorators makes the codebase look
+rather modern, almost like Angular 2.
+
+### Responsiveness
+
+Bootstrap provides fluid styles by default, which makes this task easy for any developer. Only some 
+styles did require using media queries to adjust them, in particular the new customer form, which to my
+likings seems better as a multiline form in smaller devices, whereas inline fits better for larger devices.
 
 ## Dockerizing
 

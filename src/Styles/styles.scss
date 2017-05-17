@@ -13,6 +13,7 @@
 
 $navbar-height: 58px;
 $margin-4: map_get(map_get($spacers, 4), 'x');
+$lg-breakpoint: map_get($grid-breakpoints, 'lg');
 
 html, body {
   height: 100%;
@@ -25,9 +26,11 @@ html, body {
     box-sizing: border-box;
     @include transition;
 
-    &.active, &:hover {
-      background-color: $gray-lighter;
-      border: 1px solid $gray-light;
+    @media (min-width: $lg-breakpoint) {
+      &.active, &:hover {
+        background-color: $gray-lighter;
+        border: 1px solid $gray-light;
+      }
     }
   }
 }
@@ -39,7 +42,7 @@ html, body {
 }
 
 .customer-form {
-  @media (min-width: map_get($grid-breakpoints, 'lg')) {
+  @media (min-width: $lg-breakpoint) {
     display: flex;
 
     .form-group {
