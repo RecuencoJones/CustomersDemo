@@ -1,10 +1,27 @@
-<div class="navbar">
-  <ul class="navbar-nav">
-    <li class="navbar-item"
-        ui-sref-active="active">
-      <a data-ui-sref="customers">
-        Customers
-      </a>
-    </li>
-  </ul>
-</div>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">
+    Customers Demo
+  </a>
+  <div class="collapse navbar-collapse"
+       id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"
+          ui-sref-active="active">
+        <a class="nav-link"
+           data-ui-sref="customers">
+          Customers
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

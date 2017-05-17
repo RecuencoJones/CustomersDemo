@@ -1,2 +1,18 @@
 @import "~tether/dist/css/tether.css";
 @import "~bootstrap/dist/css/bootstrap.css";
+
+@import "~bootstrap/scss/variables";
+
+.main-view {
+  padding-top: 25px;
+}
+
+.card-remove {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  &:hover {
+    color: $red;
+  }
+}

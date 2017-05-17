@@ -1,12 +1,56 @@
-<div class="home">
-  <div class="customer-form">
-    <form data-ng-submit="vm.handleSubmit()">
-      <button type="submit">Add Customer</button>
+<div class="container">
+  <div class="row">
+    <form class="form-inline" data-ng-submit="vm.handleSubmit()">
+      <label class="sr-only"
+             for="firstName">
+        First Name
+      </label>
+      <input class="form-control"
+             id="firstName"
+             type="text"
+             placeholder="First Name"
+             data-ng-model="vm.newCustomer.firstName">
+
+      <label class="sr-only"
+             for="lastName">
+        Last Name
+      </label>
+      <input class="form-control"
+             id="lastName"
+             type="text"
+             placeholder="Last Name"
+             data-ng-model="vm.newCustomer.lastName">
+
+      <label class="sr-only"
+             for="address">
+        Address
+      </label>
+      <input class="form-control"
+             id="address"
+             type="text"
+             placeholder="Address"
+             data-ng-model="vm.newCustomer.address">
+
+      <label class="sr-only"
+             for="city">
+        City
+      </label>
+      <input class="form-control"
+             id="city"
+             type="text"
+             placeholder="City"
+             data-ng-model="vm.newCustomer.city">
+
+      <button class="btn btn-primary"
+              type="submit">
+        Add Customer
+      </button>
     </form>
   </div>
-  <div class="customer-grid">
-    <div data-ng-repeat="customer in vm.customers | orderBy:'lastName'">
+  <div class="row">
+    <div class="card-group">
       <customer-card
+          data-ng-repeat="customer in vm.customers | orderBy:'lastName'"
           data-customer="customer"
           data-on-click="vm.onNavigate(customer.id)"
           data-on-remove="vm.onRemove(customer.id)">

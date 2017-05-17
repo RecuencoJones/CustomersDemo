@@ -10,7 +10,7 @@ import { ICustomer } from '../Models/ICustomer'
 })
 @Inject('$state', 'API')
 export class CustomersView {
-  private newCustomer: ICustomer
+  private newCustomer: ICustomer = {} as ICustomer
   private customers: Array<ICustomer>
 
   constructor(
@@ -18,21 +18,47 @@ export class CustomersView {
     private API: API
   ) {}
 
-  public handleSubmit() {
+  /**
+   * Handle new customer creation.
+   */
+  public handleSubmit(): void {
     console.log(this.newCustomer)
+
+    this.API.addCustomer(this.newCustomer)
+    .then(() => this.populateCustomers())
   }
 
-  public onNavigate(id: number) {
+  /**
+   * Handle click on customer orders, navigate to customer orders view.
+   *
+   * @param id - unique id of customer from which to retrieve orders.
+   */
+  public onNavigate(id: number): void {
     this.$state.go('customer-orders', {
       id
     })
   }
 
-  public onRemove(id: number) {
+  /**
+   * Handle removal of customer.
+   *
+   * @param id - unique id of customer to remove.
+   */
+  public onRemove(id: number): void {
     console.log('remove', id)
+
+    this.API.removeCustomerWithId(id)
+    .then(() => this.populateCustomers())
   }
 
-  public $onInit() {
+  /**
+   * Angular init lifecycle hook.
+   */
+  public $onInit(): void {
+    this.populateCustomers()
+  }
+
+  private populateCustomers() {
     this.API.getCustomers()
     .then((data) => {
       this.customers = data

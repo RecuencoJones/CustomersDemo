@@ -42,6 +42,7 @@ const config = {
     historyApiFallback: true
   },
   devtool: '#inline-source-map',
+  stats: 'minimal',
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'

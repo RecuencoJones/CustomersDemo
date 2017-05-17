@@ -11,9 +11,10 @@ import { IOrder } from '../Models/IOrder'
   controllerAs: 'vm'
 })
 @Inject('$stateParams', 'API')
-export class CustomerOrdersView {
-  private customer: ICustomer
-  private ordersTotal: number
+export class CustomerOrdersView implements ng.IController {
+  public customer: ICustomer
+  public ordersTotal: number
+  public error: string
 
   public constructor(
     private $stateParams: ng.ui.IStateParamsService,
@@ -28,6 +29,9 @@ export class CustomerOrdersView {
       .map(({orderTotal}: IOrder) => orderTotal)
       .reduce((accum: number, value: number) => accum + value, 0)
       .value()
+    })
+    .catch((error) => {
+      this.error = error
     })
   }
 }

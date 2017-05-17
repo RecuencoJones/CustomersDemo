@@ -8,7 +8,7 @@
 
 ## Working with the Demo
 
-`npm install`
+Before anything, run `npm install` to pull all dependencies.
 
 ### Building
 
@@ -27,12 +27,13 @@ which means we can modify our sources and instantly rebuild & reload the applica
 
 `npm run test`
 
+This will run all test suites and generate unit coverage summary.
+
 ### Other tasks
 
-`npm run db`
-`npm run lint`
-`npm run doc`
-`npm run test:coverage`
+- `npm run db`: Run a mock API server based on customers JSON.
+- `npm run lint`: Check sources are compliant with the styleguide.
+- `npm run doc`: Generate documentation output.
 
 ## Dependencies
 
