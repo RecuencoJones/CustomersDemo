@@ -4,12 +4,11 @@
 
 - node \>= 6
 - npm \>= 3
+- docker \>= 17
 
 ## Working with the Demo
 
 `npm install`
-
-
 
 ### Building
 
@@ -96,11 +95,13 @@ TypeScript type definitions, resulting in a better linked documentation web.
 
 ### JSON Server
 
-A zero config mock server that exposes a simple API from json files with mock data.
+A zero code mock server that exposes a simple API from json files with mock data through CLI.
 
 For each entity in given JSON it exposes a restful API allowing us to execute all types of actions.
 
-It just works out of the box with the provided customer JSON.  
+It would just work out of the box with the provided customer JSON, but I wanted to prevent modifications to
+it and just use the mocks as a in-memory database. For this purpose we need to create a JS file exporting the
+JSON data.
 
 ## Code insights
 
@@ -111,11 +112,14 @@ It just works out of the box with the provided customer JSON.
 ## Dockerizing
 
 ```bash
+npm run build
 docker build -t customers-demo:1.0 .
-docker run -it -d --name customers-demo -p 8080:80 customers-demo:1.0 
+docker run -it -d --name customers-demo -p 8080:80 customers-demo:1.0
 ```
 
 Docker is another powerful tool for developing and delivering. For this project a simple docker image
 is built from `nginx` so as to serve the web application.
 
-After running the commands above you can browser [http://localhost:8080/](http://localhost:8080) to see it working.
+After running the commands above you can browse [http://localhost:8080/](http://localhost:8080) to see it working.
+
+As no actual API exists for the Demo to consume, run the mock API with `npm run db`.

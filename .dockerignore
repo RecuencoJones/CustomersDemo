@@ -133,6 +133,7 @@ Temporary Items
 
 # Project defined exclusions
 .idea
+assets
 src
 doc
 test

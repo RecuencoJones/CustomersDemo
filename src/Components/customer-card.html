@@ -2,7 +2,9 @@
   <button data-ng-click="vm.onRemove()">X</button>
   {{vm.customer.id}} - {{vm.customer.firstName}} {{vm.customer.lastName}}
 
-  <a data-ng-click="vm.onClick()">
+  <div data-ng-if="vm.customer.orders"
+       data-ng-click="vm.onClick()">
     {{vm.customer.orders.length}} orders
-  </a>
+  </div>
+  <div data-ng-if="!vm.customer.orders">No orders</div>
 </div>
