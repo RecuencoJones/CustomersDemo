@@ -1,0 +1,8 @@
+<div class="customer-card">
+  <button data-ng-click="vm.onRemove()">X</button>
+  {{vm.customer.id}} - {{vm.customer.firstName}} {{vm.customer.lastName}}
+
+  <a data-ng-click="vm.onClick()">
+    {{vm.customer.orders.length}} orders
+  </a>
+</div>

@@ -1,0 +1,16 @@
+<div class="home">
+  <div class="customer-form">
+    <form data-ng-submit="vm.handleSubmit()">
+      <button type="submit">Add Customer</button>
+    </form>
+  </div>
+  <div class="customer-grid">
+    <div data-ng-repeat="customer in vm.customers | orderBy:'lastName'">
+      <customer-card
+          data-customer="customer"
+          data-on-click="vm.onNavigate(customer.id)"
+          data-on-remove="vm.onRemove(customer.id)">
+      </customer-card>
+    </div>
+  </div>
+</div>

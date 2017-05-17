@@ -1,0 +1,9 @@
+{
+  "extends": "tslint-config-standard",
+  "rules": {
+    "max-line-length": [true, 120],
+    "indent": [true, "spaces"],
+    "space-before-function-paren": [true, "never"],
+    "no-empty": false
+  }
+}

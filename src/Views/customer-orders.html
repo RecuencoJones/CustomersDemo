@@ -1,0 +1,41 @@
+<div class="customer-orders">
+  <h1>
+    Customer Orders
+  </h1>
+
+  <div data-ng-if="!vm.customer">
+    Loading data for customer with id {{vm.$stateParams.id}}...
+  </div>
+  <div data-ng-if="vm.customer">
+    <b>Orders for {{vm.customer.firstName}} {{vm.customer.lastName}}</b>
+    <div>{{vm.customer.address}}</div>
+    <div>{{vm.customer.city}}</div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>{{vm.ordersTotal | currency:'$'}}</th>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr data-ng-repeat="order in vm.customer.orders | orderBy:'orderTotal':true">
+          <td>{{order.product}}</td>
+          <td>{{order.quantity}}</td>
+          <td>{{order.price | currency:'$'}}</td>
+          <td>{{order.orderTotal | currency:'$'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
