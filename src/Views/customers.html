@@ -1,60 +1,86 @@
 <div class="container">
-  <div class="row">
-    <form class="form-inline" data-ng-submit="vm.handleSubmit()">
-      <label class="sr-only"
-             for="firstName">
-        First Name
-      </label>
-      <input class="form-control"
-             id="firstName"
-             type="text"
-             placeholder="First Name"
-             data-ng-model="vm.newCustomer.firstName">
-
-      <label class="sr-only"
-             for="lastName">
-        Last Name
-      </label>
-      <input class="form-control"
-             id="lastName"
-             type="text"
-             placeholder="Last Name"
-             data-ng-model="vm.newCustomer.lastName">
-
-      <label class="sr-only"
-             for="address">
-        Address
-      </label>
-      <input class="form-control"
-             id="address"
-             type="text"
-             placeholder="Address"
-             data-ng-model="vm.newCustomer.address">
-
-      <label class="sr-only"
-             for="city">
-        City
-      </label>
-      <input class="form-control"
-             id="city"
-             type="text"
-             placeholder="City"
-             data-ng-model="vm.newCustomer.city">
-
-      <button class="btn btn-primary"
-              type="submit">
-        Add Customer
-      </button>
-    </form>
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <form class="customer-form"
+            name="form"
+            novalidate
+            data-ng-submit="vm.handleSubmit(form)">
+        <div class="form-group"
+             data-ng-class="{
+             'has-danger': form.firstName.$touched && form.firstName.$error.required
+           }">
+          <label for="firstName">
+            First Name
+          </label>
+          <input class="form-control mr-sm-2"
+                 id="firstName"
+                 name="firstName"
+                 type="text"
+                 placeholder="First Name"
+                 required
+                 data-ng-model="vm.newCustomer.firstName">
+        </div>
+        <div class="form-group"
+             data-ng-class="{
+             'has-danger': form.lastName.$touched && form.lastName.$error.required
+           }">
+          <label for="lastName">
+            Last Name
+          </label>
+          <input class="form-control mr-sm-2"
+                 id="lastName"
+                 name="lastName"
+                 type="text"
+                 placeholder="Last Name"
+                 required
+                 data-ng-model="vm.newCustomer.lastName">
+        </div>
+        <div class="form-group"
+             data-ng-class="{
+             'has-danger': form.address.$touched && form.address.$error.required
+           }">
+          <label for="address">
+            Address
+          </label>
+          <input class="form-control mr-sm-2"
+                 id="address"
+                 name="address"
+                 type="text"
+                 placeholder="Address"
+                 required
+                 data-ng-model="vm.newCustomer.address">
+        </div>
+        <div class="form-group"
+             data-ng-class="{
+             'has-danger': form.city.$touched && form.city.$error.required
+           }">
+          <label for="city">
+            City
+          </label>
+          <input class="form-control mr-sm-2"
+                 id="city"
+                 name="city"
+                 type="text"
+                 placeholder="City"
+                 required
+                 data-ng-model="vm.newCustomer.city">
+        </div>
+        <div class="form-group form-button">
+          <button class="btn btn-primary"
+                  type="submit">
+            Add Customer
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
   <div class="row">
-    <div class="card-group">
-      <customer-card
-          data-ng-repeat="customer in vm.customers | orderBy:'lastName'"
-          data-customer="customer"
-          data-on-click="vm.onNavigate(customer.id)"
-          data-on-remove="vm.onRemove(customer.id)">
-      </customer-card>
-    </div>
+    <customer-card
+        class="col-sm-6 col-md-4 col-lg-3 mb-4"
+        data-ng-repeat="customer in vm.customers | orderBy:'lastName'"
+        data-customer="customer"
+        data-on-click="vm.onNavigate(customer.id)"
+        data-on-remove="vm.onRemove(customer.id)">
+    </customer-card>
   </div>
 </div>

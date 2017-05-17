@@ -1,21 +1,22 @@
-<div class="customer-card card" style="width: 15rem">
+<div class="card customer-card">
   <div class="card-block">
     <h4 class="card-title">
-      {{vm.customer.id}} - {{vm.customer.firstName}} {{vm.customer.lastName}}
+      {{vm.customer.firstName}} {{vm.customer.lastName}}
     </h4>
     <p class="card-text">
-
+      {{vm.customer.city}}
     </p>
-    <a class="btn btn-primary"
-       data-ng-click="vm.onClick()">
-      <span data-ng-if="vm.customer.orders">{{vm.customer.orders.length}} orders</span>
-      <span data-ng-if="!vm.customer.orders">No orders</span>
-    </a>
     <button type="button"
             class="close card-remove"
             aria-label="Remove"
             data-ng-click="vm.onRemove()">
       <span aria-hidden="true">&times;</span>
     </button>
+  </div>
+  <div class="card-footer card-footer-button"
+       data-ng-click="vm.onClick()">
+    View
+    <span data-ng-if="vm.customer.orders">{{vm.customer.orders.length}}</span>
+    Orders
   </div>
 </div>

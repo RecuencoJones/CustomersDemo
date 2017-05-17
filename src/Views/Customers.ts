@@ -21,11 +21,20 @@ export class CustomersView {
   /**
    * Handle new customer creation.
    */
-  public handleSubmit(): void {
-    console.log(this.newCustomer)
-
-    this.API.addCustomer(this.newCustomer)
-    .then(() => this.populateCustomers())
+  public handleSubmit(form: ng.IFormController): void {
+    if (form.$valid) {
+      this.API.addCustomer(this.newCustomer)
+      .then(() => this.populateCustomers())
+      .then(() => {
+        this.newCustomer = {} as ICustomer
+        form.$setPristine()
+        form.$setUntouched()
+      })
+    } else {
+      form.$error.required.map((error) => {
+        error.$setTouched()
+      })
+    }
   }
 
   /**
