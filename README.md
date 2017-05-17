@@ -72,6 +72,11 @@ Webpack is a popular bundler tool in the JavaScript community, it allows managin
 templates, etc. and creating JavaScript bundles that can be easily imported in the browser without the need of manually
 handling dependencies via ordered script tags.
 
+#### Dev Server
+
+Webpack dev server adds a simple server to the bundler with watch over the source code, every time there is a change it
+will update the bundle and reload the application or replace changed modules on-the-fly.
+
 #### CommonsChunkPlugin
 
 With this simple plugin we can configure webpack to extract all the vendor dependencies to a separate file 

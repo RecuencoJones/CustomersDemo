@@ -1,4 +1,3 @@
-import * as _ from 'lodash'
 import { Inject } from '../Decorators/Inject'
 import { ICustomer } from '../Models/ICustomer'
 
@@ -7,14 +6,17 @@ type CustomerResponse = ng.IHttpPromiseCallbackArg<ICustomer>
 
 @Inject('$http', '$location','$log')
 export class API {
+
+  private port = 3000
+  private apiUrl: string
+
   public constructor(
     private $http: ng.IHttpService,
     private $location: ng.ILocationService,
     private $log: ng.ILogService
-  ) {}
-
-  private port = 3000
-  private apiUrl = `http://${this.$location.host()}:${this.port}`
+  ) {
+    this.apiUrl = `http://${this.$location.host()}:${this.port}`
+  }
 
   /**
    * Retrieve all customers.
