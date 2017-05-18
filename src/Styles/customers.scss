@@ -1,0 +1,43 @@
+.customer-form {
+  @media (min-width: $lg-breakpoint) {
+    display: flex;
+
+    form-input {
+      margin-right: $margin-4;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .form-button {
+      .btn {
+        transform: translateY(85%);
+        @include pointer;
+      }
+    }
+  }
+}
+
+.card.customer-card {
+  .card-remove {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    &:hover {
+      color: $red;
+      @include pointer;
+      @include transition;
+    }
+  }
+
+  .card-footer-button {
+    &:hover {
+      background-color: $blue;
+      color: $white;
+      @include pointer;
+      @include transition;
+    }
+  }
+}

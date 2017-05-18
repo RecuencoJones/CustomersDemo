@@ -148,6 +148,26 @@ component configurations, etc. at a glance plus keeping related data together.
 As a personal note, I find it interesting how just mixing Angular 1.6 + TypeScript + Decorators makes the codebase look
 rather modern, almost like Angular 2.
 
+### Directives vs Components
+
+In this application three `angular.components` have been used an no directives. The main difference between them relays 
+mainly on the purpose, components make reusing markup blocks easy while directives should be focused around DOM 
+manipulations.
+
+Components are also supposed to have their own lifecycle and behave always in a predictable way without state. Angular 
+supports this by providing the one-way data bind `<`, preventing child scopes to modify parent scopes and reducing the
+amount of watches.
+
+As mentioned, directives should be related to DOM manipulation, hence the availability of link and compile functions. 
+In previous Angular versions, directives with isolated scope were used as components.
+
+### Controller As vm
+
+Using a name to refer to a controller is considered a good practice by the Angular community, in particular those
+following [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#controlleras-with-vm). 
+From all the reasons, aside from preventing the creation of tons of watches, I also find interesting that it makes 
+easier for IDEs to track references and provide completion and refactoring capabilities.
+
 ### Responsiveness
 
 Bootstrap provides fluid styles by default, which makes this task easy for any developer. Only some 

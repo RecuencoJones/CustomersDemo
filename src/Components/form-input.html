@@ -1,0 +1,15 @@
+<div class="form-group"
+     data-ng-class="{
+       'has-danger': vm.form[vm.name].$touched && vm.form[vm.name].$error.required
+     }">
+  <label for="{{vm.name}}">
+    {{vm.label}}
+  </label>
+  <input class="form-control mr-sm-2"
+         id="{{vm.name}}"
+         name="{{vm.name}}"
+         type="text"
+         placeholder="{{vm.placeholder}}"
+         required
+         data-ng-model="vm.model">
+</div>

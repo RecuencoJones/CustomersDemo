@@ -1,9 +1,6 @@
 import { Component } from '../Decorators/Component'
 
 @Component({
-  template: require('./navbar.html'),
-  controllerAs: 'navbarCtrl'
+  template: require('./navbar.html')
 })
-export class Navbar implements ng.IComponentController {
-  public constructor() {}
-}
+export class Navbar implements ng.IComponentController {}

@@ -9,9 +9,9 @@ import { ICustomer } from '../Models/ICustomer'
   controllerAs: 'vm'
 })
 @Inject('$state', 'API')
-export class CustomersView {
-  private newCustomer: ICustomer = {} as ICustomer
-  private customers: Array<ICustomer>
+export class CustomersView implements ng.IController {
+  public newCustomer: ICustomer = {} as ICustomer
+  public customers: Array<ICustomer>
 
   constructor(
     private $state: ng.ui.IStateService,
@@ -31,7 +31,7 @@ export class CustomersView {
         form.$setUntouched()
       })
     } else {
-      form.$error.required.map((error) => {
+      form.$error.required.forEach((error) => {
         error.$setTouched()
       })
     }
@@ -54,8 +54,6 @@ export class CustomersView {
    * @param id - unique id of customer to remove.
    */
   public onRemove(id: number): void {
-    console.log('remove', id)
-
     this.API.removeCustomerWithId(id)
     .then(() => this.populateCustomers())
   }

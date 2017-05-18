@@ -1,0 +1,5 @@
+@import "~bootstrap/scss/variables";
+
+$navbar-height: 58px;
+$margin-4: map_get(map_get($spacers, 4), 'x');
+$lg-breakpoint: map_get($grid-breakpoints, 'lg');

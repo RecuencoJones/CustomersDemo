@@ -39,7 +39,7 @@ describe('View: CustomerOrder', () => {
 
     API = {
       getCustomerWithId(id) {
-        return id < 5 ? $q.resolve(customerMock) : $q.reject()
+        return id < 5 ? $q.resolve(customerMock) : $q.reject('error')
       }
     }
 
@@ -92,6 +92,6 @@ describe('View: CustomerOrder', () => {
     $ctrl.$onInit()
     $rootScope.$apply()
 
-    expect($ctrl.error).to.be.string
+    expect($ctrl.error).to.be.a('string')
   })
 })

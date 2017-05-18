@@ -36,7 +36,7 @@ module.exports = (config) => {
     ],
     port: 9876,
     colors: true,
-    logLevel: 'INFO',
+    logLevel: 'ERROR',
     browsers: ['PhantomJS'],
     autoWatch: true,
     singleRun: true

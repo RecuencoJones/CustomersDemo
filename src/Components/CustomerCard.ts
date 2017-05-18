@@ -14,6 +14,4 @@ export class CustomerCard implements ng.IComponentController {
   public customer: ICustomer
   public onClick: Function
   public onRemove: Function
-
-  public constructor() {}
 }

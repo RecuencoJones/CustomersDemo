@@ -5,66 +5,30 @@
             name="form"
             novalidate
             data-ng-submit="vm.handleSubmit(form)">
-        <div class="form-group"
-             data-ng-class="{
-             'has-danger': form.firstName.$touched && form.firstName.$error.required
-           }">
-          <label for="firstName">
-            First Name
-          </label>
-          <input class="form-control mr-sm-2"
-                 id="firstName"
-                 name="firstName"
-                 type="text"
-                 placeholder="First Name"
-                 required
-                 data-ng-model="vm.newCustomer.firstName">
-        </div>
-        <div class="form-group"
-             data-ng-class="{
-             'has-danger': form.lastName.$touched && form.lastName.$error.required
-           }">
-          <label for="lastName">
-            Last Name
-          </label>
-          <input class="form-control mr-sm-2"
-                 id="lastName"
-                 name="lastName"
-                 type="text"
-                 placeholder="Last Name"
-                 required
-                 data-ng-model="vm.newCustomer.lastName">
-        </div>
-        <div class="form-group"
-             data-ng-class="{
-             'has-danger': form.address.$touched && form.address.$error.required
-           }">
-          <label for="address">
-            Address
-          </label>
-          <input class="form-control mr-sm-2"
-                 id="address"
-                 name="address"
-                 type="text"
-                 placeholder="Address"
-                 required
-                 data-ng-model="vm.newCustomer.address">
-        </div>
-        <div class="form-group"
-             data-ng-class="{
-             'has-danger': form.city.$touched && form.city.$error.required
-           }">
-          <label for="city">
-            City
-          </label>
-          <input class="form-control mr-sm-2"
-                 id="city"
-                 name="city"
-                 type="text"
-                 placeholder="City"
-                 required
-                 data-ng-model="vm.newCustomer.city">
-        </div>
+        <form-input data-name="firstName"
+            data-placeholder="First Name"
+            data-label="First Name"
+            data-model="vm.newCustomer.firstName"
+            data-form="form">
+        </form-input>
+        <form-input data-name="lastName"
+            data-placeholder="Last Name"
+            data-label="Last Name"
+            data-model="vm.newCustomer.lastName"
+            data-form="form">
+        </form-input>
+        <form-input data-name="address"
+            data-placeholder="Address"
+            data-label="Address"
+            data-model="vm.newCustomer.address"
+            data-form="form">
+        </form-input>
+        <form-input data-name="city"
+            data-placeholder="City"
+            data-label="City"
+            data-model="vm.newCustomer.city"
+            data-form="form">
+        </form-input>
         <div class="form-group form-button">
           <button class="btn btn-primary"
                   type="submit">

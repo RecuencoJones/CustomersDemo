@@ -2,85 +2,13 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
-@mixin pointer {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-$navbar-height: 58px;
-$margin-4: map_get(map_get($spacers, 4), 'x');
-$lg-breakpoint: map_get($grid-breakpoints, 'lg');
+@import "vars";
+@import "mixins";
 
 html, body {
   height: 100%;
   width: 100%;
 }
 
-.navbar {
-  .nav-item {
-    border: 1px solid transparent;
-    box-sizing: border-box;
-    @include transition;
-
-    @media (min-width: $lg-breakpoint) {
-      &.active, &:hover {
-        background-color: $gray-lighter;
-        border: 1px solid $gray-light;
-      }
-    }
-  }
-}
-
-.navbar-offset {
-  height: calc(100% - #{$navbar-height});
-  padding-top: $margin-4;
-  overflow: auto;
-}
-
-.customer-form {
-  @media (min-width: $lg-breakpoint) {
-    display: flex;
-
-    .form-group {
-      margin-right: $margin-4;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      &.form-button {
-        .btn {
-          transform: translateY(85%);
-          @include pointer;
-        }
-      }
-    }
-  }
-}
-
-.card.customer-card {
-  .card-remove {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-
-    &:hover {
-      color: $red;
-      @include pointer;
-      @include transition;
-    }
-  }
-
-  .card-footer-button {
-    &:hover {
-      background-color: $blue;
-      color: $white;
-      @include pointer;
-      @include transition;
-    }
-  }
-}
+@import "navbar";
+@import "customers";

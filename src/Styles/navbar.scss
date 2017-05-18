@@ -1,0 +1,20 @@
+.navbar {
+  .nav-item {
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    @include transition;
+
+    @media (min-width: $lg-breakpoint) {
+      &.active, &:hover {
+        background-color: $gray-lighter;
+        border: 1px solid $gray-light;
+      }
+    }
+  }
+}
+
+.navbar-offset {
+  height: calc(100% - #{$navbar-height});
+  padding-top: $margin-4;
+  overflow: auto;
+}

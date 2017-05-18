@@ -8,7 +8,6 @@ type DeleteCustomerResponse = ng.IHttpPromiseCallbackArg<{}>
 
 @Inject('$http', '$location','$log')
 export class API {
-
   private port = 3000
   private apiUrl: string
 
