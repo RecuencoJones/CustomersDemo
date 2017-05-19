@@ -1,10 +1,8 @@
-import * as sinon from 'sinon'
 import * as angular from 'angular'
 import { CustomersView } from '../../../../src/Views/Customers'
 import { ICustomer } from '../../../../src/Models/ICustomer'
 
 describe('View: Customers', () => {
-
   let $rootScope: ng.IRootScopeService
   let $controller: ng.IControllerService
   let $q: ng.IQService

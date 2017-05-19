@@ -24,6 +24,7 @@
     "@types/angular-mocks": "1.5.9",
     "@types/angular-ui-router": "1.1.36",
     "@types/chai": "3.5.2",
+    "@types/karma-chai-sinon": "0.1.5",
     "@types/lodash": "4.14.64",
     "@types/mocha": "2.2.41",
     "@types/node": "7.0.18",
