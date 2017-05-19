@@ -1,5 +1,4 @@
 import * as angular from 'angular'
-import { expect } from 'chai'
 
 describe('Component: CustomerCard', () => {
   const customerMock = {
@@ -17,6 +16,7 @@ describe('Component: CustomerCard', () => {
   let $componentController
 
   beforeEach(angular.mock.module('customers-demo'))
+
   beforeEach(inject((_$componentController_) => {
     $componentController = _$componentController_
   }))

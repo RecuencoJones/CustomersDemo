@@ -1,5 +1,7 @@
+const path = require('path')
 const webpackConfig = require('../../webpack.config')
 
+// disable CommonsChunkPlugin for testing
 webpackConfig.plugins = []
 
 module.exports = (config) => {
@@ -11,7 +13,7 @@ module.exports = (config) => {
     ],
     preprocessors: {
       'test/config/MochaGlobals.ts': ['webpack'],
-      'test/specs/unit/**/*.spec.ts': ['webpack', 'coverage']
+      'test/specs/unit/**/*.spec.ts': ['webpack']
     },
     exclude: [],
     frameworks: [
@@ -31,12 +33,18 @@ module.exports = (config) => {
     mime: {
       'text/x-typescript': ['ts', 'tsx']
     },
-    reporters: [
-      'dots'
-    ],
+    reporters: ['dots', 'coverage-istanbul'],
+    coverageIstanbulReporter: {
+      dir: 'test/results/coverage',
+      reports: ['html', 'text-summary'],
+      fixWebpackSourcePaths: true
+    },
     port: 9876,
     colors: true,
-    logLevel: 'ERROR',
+    logLevel: config.LOG_DISABLE,
+    client: {
+      captureConsole: false
+    },
     browsers: ['PhantomJS'],
     autoWatch: true,
     singleRun: true

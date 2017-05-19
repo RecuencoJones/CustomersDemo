@@ -138,6 +138,7 @@ describe('View: Customers', () => {
       sandbox.spy(API, 'removeCustomerWithId')
 
       $ctrl.onRemove(1)
+      $rootScope.$apply()
 
       expect(API.removeCustomerWithId).to.have.been.calledWith(1)
     })

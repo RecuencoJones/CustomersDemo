@@ -1,20 +1,19 @@
 import { Inject } from '../Decorators/Inject'
 import { ICustomer } from '../Models/ICustomer'
 
-type GetCustomersResponse = ng.IHttpPromiseCallbackArg<Array<ICustomer>>
-type GetCustomerResponse = ng.IHttpPromiseCallbackArg<ICustomer>
-type CreateCustomerResponse = ng.IHttpPromiseCallbackArg<number>
-type DeleteCustomerResponse = ng.IHttpPromiseCallbackArg<{}>
+export type GetCustomersResponse = ng.IHttpPromiseCallbackArg<Array<ICustomer>>
+export type GetCustomerResponse = ng.IHttpPromiseCallbackArg<ICustomer>
+export type CreateCustomerResponse = ng.IHttpPromiseCallbackArg<number>
+export type DeleteCustomerResponse = ng.IHttpPromiseCallbackArg<{}>
 
-@Inject('$http', '$location','$log')
+@Inject('$http', '$location')
 export class API {
   private port = 3000
   private apiUrl: string
 
   public constructor(
     private $http: ng.IHttpService,
-    private $location: ng.ILocationService,
-    private $log: ng.ILogService
+    private $location: ng.ILocationService
   ) {
     this.apiUrl = `http://${this.$location.host()}:${this.port}`
   }
@@ -28,7 +27,7 @@ export class API {
     return this.$http.get(`${this.apiUrl}/customers`)
     .then(({data}: GetCustomersResponse) => data)
     .catch(() => {
-      this.$log.error('Error retrieving customers data')
+      throw new Error('Error retrieving customers data')
     })
   }
 
@@ -42,7 +41,7 @@ export class API {
     return this.$http.post(`${this.apiUrl}/customers`, customer)
     .then(({data}: CreateCustomerResponse) => data)
     .catch(() => {
-      this.$log.error('Error creating new customer', customer)
+      throw new Error(`Error creating new customer ${customer}`)
     })
   }
 
@@ -70,7 +69,7 @@ export class API {
     return this.$http.delete(`${this.apiUrl}/customers/${id}`)
     .then(({data}: DeleteCustomerResponse) => data)
     .catch(() => {
-      this.$log.error('Error removing customer with id', id)
+      throw new Error(`Error removing customer with id ${id}`)
     })
   }
 }

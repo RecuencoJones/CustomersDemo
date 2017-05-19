@@ -57,7 +57,7 @@ const config = {
   ]
 }
 
-if (process.env.NODE_ENV) {
+if (process.env.NODE_ENV === 'production') {
   config.plugins = (config.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
@@ -68,6 +68,13 @@ if (process.env.NODE_ENV) {
   ])
 
   config.devtool = '#source-map'
+} else if (process.env.NODE_ENV === 'testing') {
+  config.module.rules.push({
+    enforce: 'post',
+    test: /\.ts$/,
+    loader: 'istanbul-instrumenter-loader',
+    exclude: /test|node_modules|\.spec\.ts$/
+  })
 }
 
 module.exports = config
