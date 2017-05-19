@@ -28,6 +28,6 @@ describe('Component: CustomerCard', () => {
       onRemove: () => {}
     })
 
-    expect($ctrl.customer).to.not.be.undefined
+    expect($ctrl.customer).to.equal(customerMock)
   })
 })

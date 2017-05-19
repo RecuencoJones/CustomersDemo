@@ -65,7 +65,7 @@ export class CustomersView implements ng.IController {
     this.populateCustomers()
   }
 
-  private populateCustomers() {
+  private populateCustomers(): void {
     this.API.getCustomers()
     .then((data) => {
       this.customers = data

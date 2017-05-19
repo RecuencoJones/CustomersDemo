@@ -21,7 +21,14 @@ export class CustomerOrdersView implements ng.IController {
     private API: API
   ) {}
 
+  /**
+   * Angular init lifecycle hook.
+   */
   public $onInit(): void {
+    this.populateCustomer()
+  }
+
+  private populateCustomer(): void {
     this.API.getCustomerWithId(+this.$stateParams.id)
     .then((data: ICustomer) => {
       this.customer = data

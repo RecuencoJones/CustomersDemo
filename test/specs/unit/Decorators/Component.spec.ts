@@ -1,5 +1,4 @@
 import { Component } from '../../../../src/Decorators/Component'
-import { expect } from 'chai'
 
 describe('Decorator: Component', () => {
   it('should assign component configuration to a class', () => {

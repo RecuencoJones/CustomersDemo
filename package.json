@@ -5,7 +5,9 @@
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "npm run db & webpack-dev-server --open --hot",
     "db": "json-server assets/customer-db.js",
-    "lint": "tslint --config tslint.json --project tsconfig.json --type-check",
+    "lint": "npm run lint:src && npm run lint:test",
+    "lint:src": "tslint --config tslint.json --project tsconfig.json --type-check",
+    "lint:test": "tslint --config tslint-test.json --project tsconfig-test.json --type-check",
     "doc": "typedoc --out doc --mode file",
     "test": "karma start test/config/karma.config.js"
   },

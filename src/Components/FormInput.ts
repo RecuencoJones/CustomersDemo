@@ -6,7 +6,7 @@ import { Component } from '../Decorators/Component'
     placeholder: '@',
     label: '@',
     model: '=',
-    form: '=',
+    form: '='
   },
   controllerAs: 'vm',
   template: require('./form-input.html')

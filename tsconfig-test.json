@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/**/*",
+    "test/config/Expect.d.ts",
+    "test/config/MochaGlobals.ts",
+    "test/specs/**/*"
+  ]
+}

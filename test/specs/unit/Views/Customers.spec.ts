@@ -5,14 +5,15 @@ import { ICustomer } from '../../../../src/Models/ICustomer'
 
 describe('View: Customers', () => {
 
-  let $rootScope: ng.IRootScopeService,
-    $controller: ng.IControllerService,
-    $q: ng.IQService,
-    $state: ng.ui.IStateService,
-    sandbox: sinon.SinonSandbox,
-    customersMock: Array<ICustomer>,
-    customerMock: ICustomer,
-    API, form
+  let $rootScope: ng.IRootScopeService
+  let $controller: ng.IControllerService
+  let $q: ng.IQService
+  let $state: ng.ui.IStateService
+  let sandbox: sinon.SinonSandbox
+  let customersMock: Array<ICustomer>
+  let customerMock: ICustomer
+  let API
+  let form
 
   function getController(): CustomersView {
     return $controller($state.get('customers').controller as Function) as CustomersView
@@ -78,8 +79,8 @@ describe('View: Customers', () => {
 
   describe('Submit customer', () => {
     it('should trigger submit of new customer with valid form', () => {
-      const $ctrl: CustomersView = getController(),
-        addCustomerSpy: sinon.SinonSpy = sandbox.spy(API, 'addCustomer')
+      const $ctrl: CustomersView = getController()
+      const addCustomerSpy: sinon.SinonSpy = sandbox.spy(API, 'addCustomer')
 
       customerMock = {
         firstName: 'Some Name',
@@ -102,8 +103,8 @@ describe('View: Customers', () => {
     })
 
     it('should prevent submit of new customer with invalid form', () => {
-      const $ctrl: CustomersView = getController(),
-        errorSetTouchedSpy: sinon.SinonSpy = sandbox.spy()
+      const $ctrl: CustomersView = getController()
+      const errorSetTouchedSpy: sinon.SinonSpy = sandbox.spy()
 
       sandbox.spy(API, 'addCustomer')
 
