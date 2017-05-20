@@ -35,6 +35,21 @@ describe('Service: API', () => {
 
       expect(response).to.have.length(2)
     })
+
+    it('should return error on request fail', () => {
+      let response: string
+
+      api.getCustomers()
+      .catch((error) => {
+        response = error
+      })
+
+      $httpBackend.whenGET(/\/customers$/).respond(400)
+
+      $httpBackend.flush()
+
+      expect(response).to.be.an('error')
+    })
   })
 
   describe('addCustomer()', () => {
@@ -55,6 +70,23 @@ describe('Service: API', () => {
       $httpBackend.flush()
 
       expect(response).to.equal(1)
+    })
+
+    it('should return error on request fail', () => {
+      const customerMock = {} as ICustomer
+
+      let response: string
+
+      api.addCustomer(customerMock)
+      .catch((error) => {
+        response = error
+      })
+
+      $httpBackend.whenPOST(/\/customers$/).respond(400)
+
+      $httpBackend.flush()
+
+      expect(response).to.be.an('error')
     })
   })
 
@@ -77,6 +109,21 @@ describe('Service: API', () => {
 
       expect(response).to.deep.equal(customerMock)
     })
+
+    it('should return error on request fail', () => {
+      let response: string
+
+      api.getCustomerWithId(1)
+      .catch((error) => {
+        response = error
+      })
+
+      $httpBackend.whenGET(/\/customers\/[0-9]+$/).respond(400)
+
+      $httpBackend.flush()
+
+      expect(response).to.be.an('error')
+    })
   })
 
   describe('removeCustomerWithId()', () => {
@@ -95,6 +142,21 @@ describe('Service: API', () => {
       $httpBackend.flush()
 
       expect(response).to.be.empty
+    })
+
+    it('should return error on request fail', () => {
+      let response: string
+
+      api.removeCustomerWithId(1)
+      .catch((error) => {
+        response = error
+      })
+
+      $httpBackend.whenDELETE(/\/customers\/[0-9]+$/).respond(400)
+
+      $httpBackend.flush()
+
+      expect(response).to.be.an('error')
     })
   })
 })

@@ -1,9 +1,6 @@
 const path = require('path')
 const webpackConfig = require('../../webpack.config')
 
-// disable CommonsChunkPlugin for testing
-webpackConfig.plugins = []
-
 module.exports = (config) => {
   config.set({
     basePath: '../../',
@@ -35,8 +32,17 @@ module.exports = (config) => {
     },
     reporters: ['dots', 'coverage-istanbul'],
     coverageIstanbulReporter: {
-      dir: 'test/results/coverage',
-      reports: ['html', 'text-summary'],
+      dir: 'test/results',
+      reports: ['html', 'lcov', 'text-summary'],
+      'report-config': {
+        html: {
+          subdir: 'html'
+        },
+        lcov: {
+          subdir: 'lcov'
+        }
+
+      },
       fixWebpackSourcePaths: true
     },
     port: 9876,

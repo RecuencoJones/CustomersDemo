@@ -75,6 +75,9 @@ if (process.env.NODE_ENV === 'production') {
     loader: 'istanbul-instrumenter-loader',
     exclude: /test|node_modules|\.spec\.ts$/
   })
+
+  // disable CommonsChunkPlugin for testing
+  config.plugins = []
 }
 
 module.exports = config
