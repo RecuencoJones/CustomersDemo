@@ -1,6 +1,7 @@
 # Customers Demo
 
 [![Build Status](https://travis-ci.com/RecuencoJones/CustomersDemo.svg?token=aEFEyxH22R2zBRmM2Yab&branch=develop)](https://travis-ci.com/RecuencoJones/CustomersDemo)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 ## Requirements
 

@@ -25,7 +25,7 @@ module.exports = (config) => {
     ],
     webpack: webpackConfig,
     webpackMiddleware: {
-      noInfo: true,
+      noInfo: true
     },
     mime: {
       'text/x-typescript': ['ts', 'tsx']
