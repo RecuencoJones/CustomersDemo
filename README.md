@@ -29,7 +29,10 @@ which means we can modify our sources and instantly rebuild & reload the applica
 
 `npm run test`
 
-This will run all test suites and generate unit coverage summary.
+This will run all test suites and generate unit coverage reports under `test/results/` directory.
+
+- `lcov-report/index.html` visual coverage web report.
+- `lcov.info` coverage results in LCOV format.
 
 ### Other tasks
 
@@ -78,6 +81,18 @@ without fears of changing them in the future, as types allow us to refactor and 
 Not only with the models, but also we will get completion and typesafe checks for external libraries like 
 angular, lodash, karma...
 
+### TSLint
+
+Similar yet less powerful than ESLint, it is the recommended linting tool for TypeScript projects.
+
+For this particular project it has been configured to use `standard` styleguide through the module 
+`tslint-config-standard` with some overrides.
+
+### TypeDoc
+
+Documentation generator from TypeScript sources. This tool is similar to JSDoc, but we get all the benefits from
+TypeScript type definitions, resulting in a better linked documentation web.
+
 ### Webpack
 
 Webpack is a popular bundler tool in the JavaScript community, it allows managing all the application files, styles,
@@ -93,18 +108,6 @@ will update the bundle and reload the application or replace changed modules on-
 
 With this simple plugin we can configure webpack to extract all the vendor dependencies to a separate file 
 from our bundle, hence reducing the size of the main JavaScript file and easening debug.
-
-### TSLint
-
-Similar yet less powerful than ESLint, it is the recommended linting tool for TypeScript projects.
-
-For this particular project it has been configured to use `standard` styleguide through the module 
-`tslint-config-standard` with some overrides.
-
-### TypeDoc
-
-Documentation generator from TypeScript sources. This tool is similar to JSDoc, but we get all the benefits from
-TypeScript type definitions, resulting in a better linked documentation web.
 
 ### Karma, Mocha, Chai, Sinon, Istanbul
 

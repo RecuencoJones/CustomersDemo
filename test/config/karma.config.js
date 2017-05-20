@@ -33,16 +33,7 @@ module.exports = (config) => {
     reporters: ['dots', 'coverage-istanbul'],
     coverageIstanbulReporter: {
       dir: 'test/results',
-      reports: ['html', 'lcov', 'text-summary'],
-      'report-config': {
-        html: {
-          subdir: 'html'
-        },
-        lcov: {
-          subdir: 'lcov'
-        }
-
-      },
+      reports: ['lcov', 'text-summary'],
       fixWebpackSourcePaths: true
     },
     port: 9876,
