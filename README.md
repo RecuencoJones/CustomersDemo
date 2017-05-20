@@ -187,9 +187,12 @@ likings seems better as a multiline form in smaller devices, whereas inline fits
 
 ## Continuous Integration
 
-So as to run build, linter, doc and tests, TravisCI was chosen as I have worked with it for other projects.
+So as to run build, linter, doc and tests, TravisCI was chosen since I have already worked with it for other projects.
 The integration was really simple, just adding [.travis.yml](./.travis.yml) file with very few configurations and we
 get builds per push and pull request checks.
+
+Unfortunately, the public sonarqube instance does not have the required [TypeScript plugin](https://github.com/Pablissimo/SonarTsPlugin), 
+but any instance with it could analyze the source code using [the sonar configuration](./sonar-project.properties).
 
 ## Dockerizing
 
