@@ -50,14 +50,18 @@ This will run all test suites and generate unit coverage reports under `test/res
 
 The most popular CSS framework which helps building Web UIs in minutes with just some markup and classes.
 
-Even though version 4 is still an alpha version, we get a lot of value and rather modern and good looking styles.
+Even though version 4 is still an alpha version, we get a lot of value plus rather modern and good looking styles.
 Not only we get tons of classes, but we can also use the variables and mixins from the source in our Sass 
-stylesheets, se we can perform better calculations and stick to the styleguide.
+stylesheets, so we can perform better calculations and stick to the styleguide.
+
+- [Bootstrap 4 homepage](https://v4-alpha.getbootstrap.com/)
 
 ### Font Awesome
 
 Used so as to get the header icon. Adding it implies bringing in some more rules to our
 webpack configuration, allowing the demo to showcase the power of webpack.
+
+- [Font Awesome homepage](http://fontawesome.io/)
 
 ### Angular UI Router
 
@@ -66,9 +70,13 @@ provides a lot more functionality and rather powerful API, directives and provid
 
 To me it would be essential for any Angular 1 based SPA.
 
+- [Angular v1 UI router documentation](https://ui-router.github.io/ng1/)
+
 ### Lodash
 
 Utility library with many useful methods to work with collections, templates, strings, etc. 
+
+- [Lodash homepage](https://lodash.com/)
 
 ## Tooling
 
@@ -85,17 +93,23 @@ without fears of changing them in the future, as types allow us to refactor and 
 Not only with the models, but also we will get completion and typesafe checks for external libraries like 
 angular, lodash, karma...
 
+- [TypeScript homepage](http://www.typescriptlang.org/)
+
 ### TSLint
 
-Similar yet less powerful than ESLint, it is the recommended linting tool for TypeScript projects.
+Similar to ESLint, it is the recommended linting tool for TypeScript projects.
 
 For this particular project it has been configured to use `standard` styleguide through the module 
 `tslint-config-standard` with some overrides.
+
+- [TSLint homepage](https://palantir.github.io/tslint/)
 
 ### TypeDoc
 
 Documentation generator from TypeScript sources. This tool is similar to JSDoc, but we get all the benefits from
 TypeScript type definitions, resulting in a better linked documentation web.
+
+- [TypeDoc homepage](http://typedoc.org/)
 
 ### Webpack
 
@@ -103,10 +117,14 @@ Webpack is a popular bundler tool in the JavaScript community, it allows managin
 templates, etc. and creating JavaScript bundles that can be easily imported in the browser without the need of manually
 handling dependencies via ordered script tags.
 
+- [Webpack homepage](https://webpack.js.org/)
+
 #### Dev Server
 
 Webpack dev server adds a simple server to the bundler with watch over the source code, every time there is a change it
 will update the bundle and reload the application or replace changed modules on-the-fly.
+
+- [Webpack Dev Server documentation](https://webpack.js.org/configuration/dev-server/)
 
 #### CommonsChunkPlugin
 
@@ -131,6 +149,12 @@ There are also new tools coming that could replace them (jest) and would make it
 modules and bundlers, configure test coverage and preprocessors... yet I am still researching it and find myself 
 more confident with this stack.
 
+- [Karma homepage](https://karma-runner.github.io/1.0/index.html)
+- [Mocha homepage](https://mochajs.org/)
+- [Chai homepage](http://chaijs.com/)
+- [Sinon homepage](http://sinonjs.org/)
+- [Istanbul homepage](https://istanbul.js.org/)
+
 ### Sass
 
 Sass and Less are very similar preprocessors for CSS, I tend to like and use Sass more, I think it is a really powerful,
@@ -139,6 +163,8 @@ from which you can get a lot of good features. In this particular demo, not many
 To begin with, it allows importing plain CSS or Scss, which is really nice as aforementioned. Nesting is core nowadays 
 for maintainable and scalable styles (as a personal note, nesting media queries just feels glorious), variables, sets, 
 mixins and templates help reusing functionality, reducing duplicated code and and keep consistancy.
+
+- [Sass homepage](http://sass-lang.com/)
 
 ### JSON Server
 
@@ -149,6 +175,8 @@ For each entity in given JSON it exposes a restful API allowing us to execute al
 It would just work out of the box with the provided customer JSON, but I wanted to prevent modifications to
 it and just use the mocks as a in-memory database. For this purpose we need to create a JS file exporting the
 JSON data.
+
+- [JSON Server on GitHub](https://github.com/typicode/json-server)
 
 ## Implementation insights
 
@@ -201,6 +229,9 @@ get builds per push and pull request checks.
 Unfortunately, the public sonarqube instance does not have the required [TypeScript plugin](https://github.com/Pablissimo/SonarTsPlugin), 
 but any instance with it could analyze the source code using [the sonar configuration](./sonar-project.properties).
 
+- [Travis CI homepage](https://travis-ci.org/)
+- [SonarQube homepage](https://sonarqube.com/)
+
 ## Dockerizing
 
 ```bash
@@ -215,3 +246,5 @@ is built from `nginx` so as to serve the web application.
 After running the commands above you can browse [http://localhost:8080/](http://localhost:8080) to see it working.
 
 As no actual API exists for the Demo to consume, run the mock API with `npm run db`.
+
+- [Docker homepage](https://www.docker.com/)
