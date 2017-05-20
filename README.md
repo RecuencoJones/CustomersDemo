@@ -1,5 +1,7 @@
 # Customers Demo
 
+[![Build Status](https://travis-ci.com/RecuencoJones/CustomersDemo.svg?token=aEFEyxH22R2zBRmM2Yab&branch=develop)](https://travis-ci.com/RecuencoJones/CustomersDemo)
+
 ## Requirements
 
 - node \>= 6
@@ -104,10 +106,19 @@ For this particular project it has been configured to use `standard` styleguide 
 Documentation generator from TypeScript sources. This tool is similar to JSDoc, but we get all the benefits from
 TypeScript type definitions, resulting in a better linked documentation web.
 
-### Karma, Mocha, Chai, Sinon
+### Karma, Mocha, Chai, Sinon, Istanbul
 
 This has been the de-facto stack for script-based frontend unit testing. I favour it in spite of Jasmine,
 which seems to be an all-in-one tool, as you can get quite more powerful APIs from these libraries. 
+
+Karma provides the runner for the tests and links them with browser environments as well as providing a powerful,
+extensible configuration for multiple plugins and integrations.
+ 
+Mocha, chai and sinon provide the API for testing, it includes test case definitions, expectations, assertions, spies, 
+mocks and sandboxes, plus a expressive and easy to read syntax for expectations.
+ 
+Istanbul adds the instrumentation necessary for retrieving test coverage, parse sourcemaps and generate reports, the 
+most interesting is the LCOV report, which can be later integrated in SonarQube.
 
 There are also new tools coming that could replace them (jest) and would make it a lot easier to work with 
 modules and bundlers, configure test coverage and preprocessors... yet I am still researching it and find myself 
@@ -173,6 +184,12 @@ easier for IDEs to track references and provide completion and refactoring capab
 Bootstrap provides fluid styles by default, which makes this task easy for any developer. Only some 
 styles did require using media queries to adjust them, in particular the new customer form, which to my
 likings seems better as a multiline form in smaller devices, whereas inline fits better for larger devices.
+
+## Continuous Integration
+
+So as to run build, linter, doc and tests, TravisCI was chosen as I have worked with it for other projects.
+The integration was really simple, just adding [.travis.yml](./.travis.yml) file with very few configurations and we
+get builds per push and pull request checks.
 
 ## Dockerizing
 
