@@ -17,4 +17,4 @@ script:
 - npm run doc
 - npm run build
 - npm test
-# - sonar-scanner
+- sonar-scanner
